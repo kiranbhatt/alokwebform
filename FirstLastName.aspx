@@ -21,8 +21,6 @@
                     </td>
                 </tr>
 
-
-
                 <tr>
                     <td>LastName
                     </td>
@@ -50,7 +48,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <asp:GridView ID="gv" AutoGenerateColumns="false" runat="server" OnRowCommand="gv_RowCommand" CssClass="mydatagrid" HeaderStyle-CssClass="header" RowStyle-CssClass="rows">
+                        <asp:GridView ID="gv" AutoGenerateColumns="false" runat="server" OnRowCommand="gv_RowCommand"  HeaderStyle-CssClass="header" >
                             <Columns>
                                 <asp:TemplateField HeaderText="FullName">
                                     <ItemTemplate>
@@ -62,10 +60,15 @@
                                     <ItemTemplate>
                                         <%#Eval("Salary") %>
                                     </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField>
+                                </asp:TemplateField >
+                                <asp:TemplateField HeaderText="Delete">
                                     <ItemTemplate>
                                         <asp:LinkButton CssClass="bg-danger" ID="linkbutton" OnClientClick="return confirm('Are you sure you want to delete')" CommandName="Del" CommandArgument='<%#Eval("FId") %>' Text="Delete" runat="server"></asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Edit">
+                                    <ItemTemplate>
+                                        <asp:LinkButton CssClass="bg-danger" ID="edit" CommandName="Ed" CommandArgument='<%#Eval("FId") %>' runat="server"  Text="Edit" ></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
